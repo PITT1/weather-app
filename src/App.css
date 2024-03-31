@@ -10,7 +10,7 @@ main {
   background-color: rgba(236, 236, 236, 0.11);
   border-radius: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 370px;
 }
 
 .container-input {
@@ -65,17 +65,96 @@ main {
 .container-magnitud {
   display: flex;
   flex-direction: row;
+  margin-bottom: 100px;
+  margin-left: 60px;
+  margin-right: 10px;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
 }
 
-.mag {
+.humedad {
   font-size: 30px;
-  padding: 10px 20px;
+  position: relative;
+}
+
+.humedad::after {
+  content: 'Humedad';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 16px;
+}
+
+.humedad::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: -80%;
+  background-image: url(../public/humidity-white.png);
+  background-size: cover;
+  height: 40px;
+  width: 40px;
 }
 
 .img-weather {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.constainer-temp {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.temp {
+  font-size: 60px;
+  position: relative;
+}
+
+.temp::after {
+  content: '°C';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.constainer-descript {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.description {
+  font-size: 25px;
+}
+
+.wind-speed {
+  font-size: 30px;
+  position: relative;
+}
+
+.wind-speed::after {
+  content: 'Velocidad del viento';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 16px;
+}
+
+.wind-speed::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: -40%;
+  background-image: url(../public/wind-speed-icon.png);
+  background-size: cover;
+  height: 40px;
+  width: 40px;
 }
