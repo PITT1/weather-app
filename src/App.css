@@ -158,3 +158,19 @@ main {
   height: 40px;
   width: 40px;
 }
+
+.not-found-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.not-found-container p {
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  padding: 0 15px;
+}

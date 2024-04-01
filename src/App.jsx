@@ -76,7 +76,10 @@ function App() {
         <TextInput onSearch={() => search()} onChange={handleTextChange}/>
         <section className='section-output'>
           <div>
-            {notFound && <img src={not_found} alt={"lugar no encontrado"} height={60}/>}
+            {notFound && <div className='not-found-container'>
+              <img src={not_found} alt={"Ubicacion no encontrada"} height={100} width={100}/>
+              <p>Ubicacion no encontrada :´c</p>
+              </div>}
           </div>
 
           <div className='img-weather'>
