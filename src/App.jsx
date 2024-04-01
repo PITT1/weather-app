@@ -6,8 +6,10 @@ import cloud from "../public/cloud.png";
 import mist from "../public/mist.png";
 import snow from "../public/snow.png";
 import rain from "../public/rain.png";
+import not_found from "../public/not-found.png";
 
 let city = "";
+const APIKEY = "c1b7a79e7381e224e8a6e76647de2e49";
 
 function App() {
   const [temp, setTemp] = useState(null);
@@ -15,15 +17,28 @@ function App() {
   const [image, setImage] = useState("");
   const [descrip, setDescrip] = useState("");
   const [wind, setWind] = useState("");
+  const [notFound, setNotFound] = useState(false);
 
   const handleTextChange = (newText) => {
     city = newText;
   }
 
   const search = () => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=c1b7a79e7381e224e8a6e76647de2e49`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`)
     .then(res => res.json())
     .then(res => {
+
+      if(res.cod === '404'){
+        setTemp(null);
+        setHum(null);
+        setImage("");
+        setDescrip("");
+        setWind("");
+        setNotFound(true);
+      } else if(res.cod == 200){
+        setNotFound(false);
+      }
+
       setTemp(Math.trunc(res.main.temp));
       setHum(res.main.humidity);
       setDescrip(res.weather[0].description);
@@ -51,6 +66,7 @@ function App() {
           break;
       }
       console.log(res);
+      
     }) 
   }
 
@@ -59,6 +75,10 @@ function App() {
       <div className='container'>
         <TextInput onSearch={() => search()} onChange={handleTextChange}/>
         <section className='section-output'>
+          <div>
+            {notFound && <img src={not_found} alt={"lugar no encontrado"} height={60}/>}
+          </div>
+
           <div className='img-weather'>
             {temp && <img src={image} height={150} alt="imagen que representa un clima" />}
           </div>
@@ -69,8 +89,8 @@ function App() {
             {temp && <p className='description'>{descrip}</p>}
           </div>
           <div className='container-magnitud'>
-            {hum && <p className='humedad'>{hum}%</p>}
-            {hum && <p className='wind-speed'>{wind}Km/h</p>}
+            {temp && <p className='humedad'>{hum}%</p>}
+            {temp && <p className='wind-speed'>{wind}Km/h</p>}
           </div>
         </section>
       </div>
