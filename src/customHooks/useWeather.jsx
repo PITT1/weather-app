@@ -14,6 +14,7 @@ export const useWeather = () => {
     const [notFound, setNotFound] = useState(false);
    
     const updateWeather = (weatherData) => {
+        console.log(weatherData);
        if (weatherData.cod === '404') {
          setTemp(null);
          setHum(null);
