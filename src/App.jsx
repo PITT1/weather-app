@@ -28,25 +28,54 @@ function App() {
           <AnimatePresence>
           <div>
             {notFound && <div className='not-found-container'>
-              <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} src={not_found} alt={"Ubicacion no encontrada"} height={100} width={100} />
-              <motion.p initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>Ubicacion no encontrada :´c</motion.p>
+              <motion.img 
+                initial={{opacity: 0}} 
+                animate={{opacity: 1}} 
+                exit={{opacity: 0}} 
+                transition={{duration: 1}}
+                src={not_found} 
+                alt={"Ubicacion no encontrada"} 
+                height={100} 
+                width={100} />
+              <motion.p 
+                initial={{opacity: 0}} 
+                animate={{opacity: 1}} 
+                exit={{opacity: 0}}
+                transition={{duration: 1}}>Ubicacion no encontrada :´c</motion.p>
             </div>
             }
           </div>
           </AnimatePresence>
 
           <div className='img-weather'>
-            {temp && <motion.img initial={{opacity: 0}} animate={{opacity: 1}} src={image} height={150} alt="imagen que representa un clima" />}
+            {temp && <motion.img 
+                        initial={{opacity: 0}} 
+                        animate={{opacity: 1}} 
+                        src={image} 
+                        height={150} 
+                        alt="imagen que representa un clima" />}
           </div>
           <div className='constainer-temp'>
-            {temp && <motion.p initial={{opacity: 0}} animate={{opacity: 1}} className='temp'>{temp}</motion.p>}
+            {temp && <motion.p 
+                        initial={{opacity: 0}} 
+                        animate={{opacity: 1}} 
+                        className='temp'>{temp}</motion.p>}
           </div>
           <div className='constainer-descript'>
-            {temp && <motion.p initial={{opacity: 0}} animate={{opacity: 1}} className='description'>{descrip}</motion.p>}
+            {temp && <motion.p 
+                        initial={{opacity: 0}} 
+                        animate={{opacity: 1}} 
+                        className='description'>{descrip}</motion.p>}
           </div>
           <div className='container-magnitud'>
-            {temp && <motion.p initial={{opacity: 0}} animate={{opacity: 1}} className='humedad'>{hum}%</motion.p>}
-            {temp && <motion.p initial={{opacity: 0}} animate={{opacity: 1}} className='wind-speed'>{wind}Km/h</motion.p>}
+            {temp && <motion.p 
+                        initial={{opacity: 0}} 
+                        animate={{opacity: 1}} 
+                        className='humedad'>{hum}%</motion.p>}
+            {temp && <motion.p 
+                        initial={{opacity: 0}} 
+                        animate={{opacity: 1}} 
+                        className='wind-speed'>{wind}Km/h</motion.p>}
           </div>
         </motion.section>
       </motion.div>
